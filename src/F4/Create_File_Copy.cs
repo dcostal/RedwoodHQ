@@ -12,7 +12,7 @@ namespace F4
 {
     class Create_File_Copy
     {
-        public string File_Copy()
+        public string File_Copy(Dictionary<string, object> Params)
         {
             String Excel_Path_Text ="C:/repo/Figure4_Web_UI/trunk/Figure4_Web_UI/src/QA/Figure4_Web_Automation/Figure4_Files/abcd testing.PXL";
 
@@ -22,12 +22,12 @@ namespace F4
             int length = Excel_Path_Text.IndexOf(".") - occurence;
             String File_Name = Excel_Path_Text.Substring(occurence, length);
             String Source_File_Name = File_Name + ".pxl";
-            Console.WriteLine(Source_File_Name + "\n");
+            //Console.WriteLine(Source_File_Name + "\n");
 
             //appending date to file_name and storing in destination_file_name
             String Date = DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss");
             String Destination_File_Name = File_Name + "-" + Date + ".pxl";
-            Console.WriteLine(Destination_File_Name + "\n");
+            //Console.WriteLine(Destination_File_Name + "\n");
 
             string sourcePath = @"C:\repo\Figure4_Web_UI\trunk\Figure4_Web_UI\src\QA\Figure4_Web_Automation\Figure4_Files\";
             string targetPath = @"C:\repo\Figure4_Web_UI\trunk\Figure4_Web_UI\src\QA\Figure4_Web_Automation\Figure4_Files\";
@@ -39,8 +39,17 @@ namespace F4
 
             //creating a copy of the file with the name specified
             System.IO.File.Copy(sourceFile, destFile, true);
+            Thread.Sleep(1000);
             //return the new file path
+            
+            SendKeys.SendWait(destFile);
+            Thread.Sleep(3000);
+            SendKeys.SendWait(@"{Enter}");
+            Thread.Sleep(2000);     
+            Console.WriteLine(destFile);
             return (destFile);
+            
+             
             
         }      
         
