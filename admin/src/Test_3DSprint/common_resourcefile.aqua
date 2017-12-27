@@ -1,0 +1,27 @@
+{
+	"aqua" : 
+		{
+			"description" : "some description here",
+			"input_dir" : src/Test_3DSprint",
+			"output_dir": "src/Test_3DSprint",
+			"model": "Belt.stl",
+			"printerInput":"sPro-230-03",
+			"log_dir": "$LOG$",
+			"log_filename": "$LOG$\\$LOGFILENAME$",
+			"execution_parameters": [
+										{ 
+											"command_name" : "--ironPython", 
+											"command_value" : "$SEEDSCRIPTFILE$"
+										},
+										{ 
+											"command_name" : "-ExitOnMacroEnd", 
+											"command_value" : ""
+										}
+									],
+			"additional_parameters":[]
+		}
+}
+
+
+
+	
